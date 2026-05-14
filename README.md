@@ -31,6 +31,8 @@ To mirror physical hardware constraints, the control effort is capped between $0
 **3. Results & Visualization**
 
 The following "Golden Plot" demonstrates the system's efficiency, matching the high-performance requirements for precision industrial heating.
+<img width="1296" height="820" alt="image" src="https://github.com/user-attachments/assets/b887f5cb-4814-417a-b7fb-ca30162ebfc6" />
+
 Analysis:
 1. Rise Phase: The system climbs smoothly to the setpoint using maximum safe power (Saturation).
 2. Settling: The Derivative action ensures a "soft landing" at 1.0 p.u. with no oscillation.
