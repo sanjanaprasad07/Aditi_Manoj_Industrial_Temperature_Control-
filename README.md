@@ -11,3 +11,10 @@ G(s)=2/10s+1
 	​
 	
 A disturbance representing sudden heat loss is introduced at t = 15 seconds to evaluate the disturbance rejection capability of the controller.
+
+
+Objectives
+Achieve approximately zero steady-state error
+Maintain overshoot below 5%
+Ensure stable and smooth temperature response
+Improve disturbance rejection performance
