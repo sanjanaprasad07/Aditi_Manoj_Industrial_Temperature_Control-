@@ -61,3 +61,36 @@ Sensor Filtering: Implementing a Low-Pass filter to handle noise in real-world t
 Adaptive Tuning: Gain scheduling for systems where plant dynamics change based on the operating temperature range.
 
 Embedded Porting: The discrete-time logic used in the MATLAB script is designed for easy porting to C++ for microcontrollers such as the ESP32 or Arduino
+
+**6. Model and Assumptions**
+This section defines the physical behavior of the furnace and the constraints assumed during the simulation.
+
+**Mathematical Model**
+
+The furnace is modeled as a First-Order Plus Dead Time (FOPDT) system, a standard representation for thermal plants. The plant dynamics are governed by the following differential equation:
+
+$$\tau \frac{dy(t)}{dt} + y(t) = K_p \cdot u(t)$$
+
+Time Constant ($\tau$): 10 seconds, representing the thermal inertia of the furnace.
+
+Process Gain ($G_p$): 2.0, defining the steady-state change in temperature for a given change in power.
+
+Integration Method: Euler's method with a fixed step size ($dt = 0.05s$) for discrete-time implementation.
+
+**Key Assumptions**
+
+Normalized Units: All values are represented in p.u. (per-unit), where 1.0 p.u. is the target operating setpoint.
+
+Ideal Sensing: The feedback loop assumes a clean signal (filtering is noted as a future improvement).
+
+Instantaneous Feedforward: The system is assumed to detect the disturbance (door opening) at the exact moment it occurs.
+
+Linearity: The plant gain is assumed to be constant across the operating range, while the controller compensates for non-linearities via gain scheduling.
+
+**7. Controller Parameters**
+  
+The system uses an Adaptive Gain Scheduling strategy. The PID constants ($K_p$, $K_i$, $K_d$) transition dynamically based on the current state ($T$) of the system to optimize performance.
+
+<img width="713" height="267" alt="image" src="https://github.com/user-attachments/assets/1bb3b530-8d0b-4488-bbb2-374519dee200" />
+
+
